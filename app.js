@@ -112,7 +112,8 @@
   }
 
   function route() {
-    var h = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+    var h;
+    try { h = decodeURIComponent(location.hash.replace(/^#\/?/, "")); } catch (e) { h = "?"; }
     var parts = h.split("/");
     var out;
     if (!h) out = home();
